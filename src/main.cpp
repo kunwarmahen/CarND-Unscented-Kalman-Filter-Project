@@ -160,6 +160,7 @@ int main(int argc, char* argv[]) {
   out_file_ << "py_ground_truth" << "\t";
   out_file_ << "vx_ground_truth" << "\t";
   out_file_ << "vy_ground_truth" << "\t";
+  out_file_ << "v_ground_truth" << "\t";
   out_file_ << "yaw_groundtruth" << "\t";
   out_file_ << "yawrate_groundtruth" << "\n";
 
@@ -210,6 +211,10 @@ int main(int argc, char* argv[]) {
     out_file_ << gt_pack_list[k].gt_values_(1) << "\t";
     out_file_ << gt_pack_list[k].gt_values_(2) << "\t";
     out_file_ << gt_pack_list[k].gt_values_(3) << "\t";
+	if(gt_pack_list[k].gt_values_(4) != 0)
+		out_file_ << gt_pack_list[k].gt_values_(3)/sin(gt_pack_list[k].gt_values_(4)) << "\t";
+	else 
+		out_file_ << 0 << "\t";
 	out_file_ << gt_pack_list[k].gt_values_(4) << "\t";
 	out_file_ << gt_pack_list[k].gt_values_(5) << "\n";
 
